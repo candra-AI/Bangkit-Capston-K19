@@ -10,16 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SkinDetector">
         <activity
+            android:name=".ui.activity.welcome.WelcomeActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_wellcome"
+            android:theme="@style/Theme.SkinDetector.Fullscreen"></activity>
+        <activity
             android:name=".ui.activity.splash.SplashActivity"
             android:theme="@style/Theme.SkinDetector.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.home.HomeActivity"></activity>
+        <activity android:name=".ui.activity.home.HomeActivity" />
     </application>
 
 </manifest>

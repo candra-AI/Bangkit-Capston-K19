@@ -3,6 +3,7 @@ package id.capstone.project.skindetector.ui.activity.home
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.commit
 import androidx.navigation.ActivityNavigator
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
@@ -12,6 +13,7 @@ import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import id.capstone.project.skindetector.R
 import id.capstone.project.skindetector.databinding.ActivityHomeBinding
+import id.capstone.project.skindetector.ui.fragment.welcome.WelcomeFragment
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding

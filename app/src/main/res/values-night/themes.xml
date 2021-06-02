@@ -22,4 +22,9 @@
     <style name="Theme.SkinDetector.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.SkinDetector.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="ThemeOverlay.SkinDetector.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_900</item>
+        <item name="fullscreenTextColor">@color/light_blue_A400</item>
+    </style>
 </resources>
