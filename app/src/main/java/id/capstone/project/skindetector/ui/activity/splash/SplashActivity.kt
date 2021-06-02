@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import id.capstone.project.skindetector.HomeActivity
+import id.capstone.project.skindetector.ui.activity.home.HomeActivity
 import id.capstone.project.skindetector.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {
