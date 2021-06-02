@@ -28,5 +28,14 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="desc_welcoming">Detect your skin disease by taking 3-4 inches of the skin with sufficient light</string>
     <string name="start">Start</string>
+    <string name="duration">Duration of skin disease : </string>
+    <string name="symptoms">Symptoms : </string>
+    <string name="bump"> Bump</string>
+    <string name="itchy"> Itchy</string>
+    <string name="skin_resilient"> Resilient Skin</string>
+    <string name="skin_rash"> Rash Skin</string>
+    <string name="skin_scaly"> Scaly Skin</string>
+    <string name="upload_picture"> Upload Picture</string>
+    <string name="done"> Done</string>
 
 </resources>
