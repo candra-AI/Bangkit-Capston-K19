@@ -6,4 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.welcome.WelcomeActivity">
 
+    <TextView
+        android:id="@+id/tv_desc_welcoming"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="@string/desc_welcoming"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="87dp"
+        android:fontFamily="@font/raleway_bold"
+        android:text="@string/start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_desc_welcoming" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

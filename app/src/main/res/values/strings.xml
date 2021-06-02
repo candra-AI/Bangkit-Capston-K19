@@ -26,4 +26,7 @@
     <string name="title_activity_wellcome">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="desc_welcoming">Detect your skin disease by taking 3-4 inches of the skin with sufficient light</string>
+    <string name="start">Start</string>
+
 </resources>
