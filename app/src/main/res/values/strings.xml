@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Skin Detector</string>
+    <string name="title_home">Home</string>
+    <string name="title_message">Message</string>
+    <string name="title_camera">Camera</string>
+    <string name="title_premium">Premium</string>
+    <string name="title_profile">Profile</string>
+    <string name="description_splash">Detect your Skin Problem\nand know the Disease</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="desc_welcome">Know your Diseases by AI and Validity it by Professional Doctor</string>
+    <string name="create_account">Create Account</string>
+    <string name="login">Login</string>
+    <string name="input_email">Input Email Address</string>
+    <string name="input_password">Input Your Password</string>
+    <string name="signup_login">Haven\'t account yet? Sign Up here</string>
+    <string name="or">Or</string>
+    <string name="signup">Sign Up</string>
+    <string name="input_name">Input Your Name</string>
+</resources>

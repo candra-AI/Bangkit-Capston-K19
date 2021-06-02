@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home"
+        android:checked="true"
+        android:iconTint="@color/green_200"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_message"
+        android:icon="@drawable/ic_comment"
+        android:iconTint="@color/green_200"
+        android:title="@string/title_message" />
+
+    <item
+        android:id="@+id/navigation_camera"
+        android:icon="@drawable/ic_camera"
+        android:iconTint="@color/green_200"
+        android:title="@string/title_camera" />
+
+    <item
+        android:id="@+id/navigation_premium"
+        android:icon="@drawable/ic_verified"
+        android:iconTint="@color/green_200"
+        android:title="@string/title_premium" />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_user"
+        android:iconTint="@color/green_200"
+        android:title="@string/title_profile" />
+
+</menu>
