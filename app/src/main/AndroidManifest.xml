@@ -11,14 +11,15 @@
         android:theme="@style/Theme.SkinDetector">
         <activity
             android:name=".ui.activity.splash.SplashActivity"
-            android:theme="@style/Theme.SkinDetector.NoActionBar" />
-        <activity android:name=".ui.activity.home.HomeActivity">
+            android:theme="@style/Theme.SkinDetector.NoActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activity.home.HomeActivity"></activity>
     </application>
 
 </manifest>

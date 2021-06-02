@@ -18,7 +18,7 @@
         app:bubbletab_icon_padding="5sp"
         app:bubbletab_vertical_padding="10dp"
         app:bubbletab_menuResource="@menu/bottom_nav_menu"
-        app:bubbletab_custom_font="@font/regular"
+        app:bubbletab_custom_font="@font/raleway_regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
