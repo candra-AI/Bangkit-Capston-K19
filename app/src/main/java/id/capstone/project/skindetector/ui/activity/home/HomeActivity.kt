@@ -1,6 +1,10 @@
 package id.capstone.project.skindetector.ui.activity.home
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
+import android.provider.MediaStore
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ActivityNavigator
@@ -11,6 +15,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import id.capstone.project.skindetector.R
 import id.capstone.project.skindetector.databinding.ActivityHomeBinding
+import id.capstone.project.skindetector.ui.fragment.main.camera.CameraFragment.Companion.GALLERY_REQUEST
+import java.io.IOException
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -53,6 +59,23 @@ class HomeActivity : AppCompatActivity() {
                 super.onBackPressed()
         } else {
             supportFragmentManager.popBackStack()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) when (requestCode) {
+            GALLERY_REQUEST -> {
+                val selectedImage = data?.data
+                try {
+                    val bitmap =
+                        MediaStore.Images.Media.getBitmap(contentResolver, selectedImage)
+//                    carImage.setImageBitmap(bitmap)
+                    Toast.makeText(this, "Data get successfully!", Toast.LENGTH_SHORT).show()
+                } catch (e: IOException) {
+                    Log.i("TAG", "Some exception $e")
+                }
+            }
         }
     }
 

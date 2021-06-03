@@ -2,6 +2,7 @@ package id.capstone.project.skindetector.ui.fragment.main.camera
 
 import android.Manifest
 import android.app.Activity
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
@@ -10,10 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.camera.core.CameraSelector
-import androidx.camera.core.ImageCapture
-import androidx.camera.core.ImageCaptureException
-import androidx.camera.core.Preview
+import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -26,6 +24,7 @@ import java.util.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
+
 /**
  * A simple [Fragment] subclass.
  * Use the [CameraFragment.newInstance] factory method to
@@ -37,12 +36,14 @@ class CameraFragment : Fragment() {
         private const val TAG = "CameraXBasic"
         private const val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
         private const val REQUEST_CODE_PERMISSIONS = 10
+        const val GALLERY_REQUEST = 12
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
     }
 
     private var _binding: FragmentCameraBinding? = null
     private val binding get() = _binding!!
     private var imageCapture: ImageCapture? = null
+    private var flashState = false
 
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
@@ -59,6 +60,10 @@ class CameraFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+//        if (!Camera.getCameraInfo()) {
+//            Toast.makeText(context, "Device doesn't support Flash!", Toast.LENGTH_SHORT).show()
+//        }
+
         // Request camera permissions
         if (allPermissionsGranted()) {
             startCamera()
@@ -69,7 +74,26 @@ class CameraFragment : Fragment() {
         }
 
         // Set up the listener for take photo button
-        binding.btnTakePicture.setOnClickListener { takePhoto() }
+        with(binding) {
+            btnTakePicture.setOnClickListener { takePhoto() }
+            btnGallery.setOnClickListener {
+                val photoPickerIntent = Intent(Intent.ACTION_PICK).apply {
+                    type = "image/*"
+                }
+                startActivityForResult(
+                    Intent.createChooser(photoPickerIntent, "Select Picture"),
+                    GALLERY_REQUEST
+                )
+            }
+            btnFlash.setOnClickListener {
+                if (flashState) {
+                    imageCapture?.flashMode = ImageCapture.FLASH_MODE_OFF
+                } else {
+                    imageCapture?.flashMode = ImageCapture.FLASH_MODE_ON
+                }
+                flashState = !flashState
+            }
+        }
 
         outputDirectory = getOutputDirectory()
 
