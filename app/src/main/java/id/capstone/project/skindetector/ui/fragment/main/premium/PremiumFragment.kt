@@ -1,19 +1,19 @@
-package id.capstone.project.skindetector.ui.fragment.home
+package id.capstone.project.skindetector.ui.fragment.main.premium
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import id.capstone.project.skindetector.databinding.FragmentHomeBinding
+import id.capstone.project.skindetector.databinding.FragmentPremiumBinding
 
 /**
  * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
+ * Use the [PremiumFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class HomeFragment : Fragment() {
-    private var _binding: FragmentHomeBinding? = null
+class PremiumFragment : Fragment() {
+    private var _binding: FragmentPremiumBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -21,7 +21,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentPremiumBinding.inflate(inflater, container, false)
         return binding.root
     }
 

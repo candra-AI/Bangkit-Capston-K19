@@ -29,7 +29,7 @@
         android:textSize="24sp"
         android:textColor="@color/black"
         android:fontFamily="@font/raleway_semibold"
-        android:justificationMode="inter_word"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_logo"
         app:layout_constraintEnd_toEndOf="parent" />

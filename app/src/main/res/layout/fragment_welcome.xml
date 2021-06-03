@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.welcome.WelcomeFragment">
+    tools:context=".ui.fragment.welcoming.welcome.WelcomeFragment">
 
     <ImageView
         android:id="@+id/iv_logo"
@@ -44,8 +44,8 @@
             android:layout_below="@+id/doctor_lottie"
             android:layout_marginStart="@dimen/size_24"
             android:layout_marginEnd="@dimen/size_24"
+            android:gravity="center"
             android:fontFamily="@font/raleway_semibold"
-            android:justificationMode="inter_word"
             android:text="@string/desc_welcome"
             android:textSize="18sp" />
 

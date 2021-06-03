@@ -1,19 +1,21 @@
-package id.capstone.project.skindetector.ui.fragment.message
+package id.capstone.project.skindetector.ui.fragment.welcoming.greetings
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import id.capstone.project.skindetector.databinding.FragmentMessageBinding
+import id.capstone.project.skindetector.R
+import id.capstone.project.skindetector.databinding.FragmentGreetingsBinding
+import id.capstone.project.skindetector.databinding.FragmentSignUpBinding
 
 /**
  * A simple [Fragment] subclass.
- * Use the [MessageFragment.newInstance] factory method to
+ * Use the [GreetingsFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class MessageFragment : Fragment() {
-    private var _binding: FragmentMessageBinding? = null
+class GreetingsFragment : Fragment() {
+    private var _binding: FragmentGreetingsBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -21,7 +23,7 @@ class MessageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentMessageBinding.inflate(inflater, container, false)
+        _binding = FragmentGreetingsBinding.inflate(inflater, container, false)
         return binding.root
     }
 

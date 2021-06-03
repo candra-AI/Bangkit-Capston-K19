@@ -6,6 +6,8 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import id.capstone.project.skindetector.databinding.ActivitySplashBinding
+import id.capstone.project.skindetector.ui.activity.home.HomeActivity
+import id.capstone.project.skindetector.ui.activity.welcome.WelcomeActivity
 
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
@@ -15,11 +17,12 @@ class SplashActivity : AppCompatActivity() {
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val fragmentManager = supportFragmentManager
-
         Handler(Looper.getMainLooper()).postDelayed({
-//            startActivity(Intent(this, HomeActivity::class.java))
-            startActivity(Intent(this, WelcomeActivity::class.java))
+            if (false) {
+                startActivity(Intent(this, HomeActivity::class.java))
+            } else {
+                startActivity(Intent(this, WelcomeActivity::class.java))
+            }
             finish()
         }, 2000L)
     }

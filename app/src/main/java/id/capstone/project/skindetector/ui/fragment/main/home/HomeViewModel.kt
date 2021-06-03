@@ -1,4 +1,4 @@
-package id.capstone.project.skindetector.ui.fragment.home
+package id.capstone.project.skindetector.ui.fragment.main.home
 
 import androidx.lifecycle.ViewModel
 
