@@ -11,6 +11,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.result.ActivityResultCallback
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
@@ -36,7 +38,7 @@ class CameraFragment : Fragment() {
         private const val TAG = "CameraXBasic"
         private const val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
         private const val REQUEST_CODE_PERMISSIONS = 10
-        const val GALLERY_REQUEST = 12
+        const val GALLERY_REQUEST = 156
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
     }
 
@@ -47,6 +49,22 @@ class CameraFragment : Fragment() {
 
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                // There are no request codes
+                val data: Intent? = result.data
+//                        doSomeOperations()
+                Toast.makeText(context, "Congratulations!", Toast.LENGTH_SHORT).show()
+            }
+        }
+        registerForActivityResult(resultLauncher,
+            ActivityResultCallback<Intent> {
+
+            })
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -80,10 +98,12 @@ class CameraFragment : Fragment() {
                 val photoPickerIntent = Intent(Intent.ACTION_PICK).apply {
                     type = "image/*"
                 }
-                startActivityForResult(
-                    Intent.createChooser(photoPickerIntent, "Select Picture"),
-                    GALLERY_REQUEST
-                )
+                resultLauncher.launch(photoPickerIntent)
+//                startActivityForResult(
+////                    Intent.createChooser(photoPickerIntent, "Select Picture"),
+//                    photoPickerIntent,
+//                    GALLERY_REQUEST
+//                )
             }
             btnFlash.setOnClickListener {
                 if (flashState) {

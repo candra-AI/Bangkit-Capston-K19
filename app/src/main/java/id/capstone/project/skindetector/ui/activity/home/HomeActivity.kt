@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ActivityNavigator
 import androidx.navigation.NavController
@@ -48,6 +49,7 @@ class HomeActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             binding.bubbleTabBar.setSelectedWithId(destination.id, false)
         }
+
     }
 
     override fun onBackPressed() {
@@ -64,17 +66,21 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK) when (requestCode) {
-            GALLERY_REQUEST -> {
-                val selectedImage = data?.data
-                try {
-                    val bitmap =
-                        MediaStore.Images.Media.getBitmap(contentResolver, selectedImage)
+        if (resultCode == Activity.RESULT_OK) {
+            when (requestCode) {
+                GALLERY_REQUEST -> {
+                    Toast.makeText(this, "Data get out!", Toast.LENGTH_SHORT).show()
+                    val selectedImage = data?.data
+                    try {
+                        val bitmap =
+                            MediaStore.Images.Media.getBitmap(contentResolver, selectedImage)
 //                    carImage.setImageBitmap(bitmap)
-                    Toast.makeText(this, "Data get successfully!", Toast.LENGTH_SHORT).show()
-                } catch (e: IOException) {
-                    Log.i("TAG", "Some exception $e")
+                        Toast.makeText(this, "Data get successfully!", Toast.LENGTH_SHORT).show()
+                    } catch (e: IOException) {
+                        Log.i("TAG", "Some exception $e")
+                    }
                 }
+                else -> Toast.makeText(this, "Not Found! $requestCode", Toast.LENGTH_SHORT).show()
             }
         }
     }
