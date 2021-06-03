@@ -38,5 +38,8 @@
     <string name="hello_name">Hi %s</string>
     <string name="greeting_desc">Detect your skin by taking a 3-4 inch picture of the skin with sufficient light</string>
     <string name="start">Start</string>
+    <string name="doctor_name"> dr. Adi Candra</string>
+    <string name="doctor_specialist"> Skin Specialist</string>
+    <string name="appointment"> Make Appointment</string>
 
 </resources>
