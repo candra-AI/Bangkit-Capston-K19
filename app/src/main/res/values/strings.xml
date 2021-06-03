@@ -41,5 +41,7 @@
     <string name="doctor_name"> dr. Adi Candra</string>
     <string name="doctor_specialist"> Skin Specialist</string>
     <string name="appointment"> Make Appointment</string>
+    <string name="result"> Detection result</string>
+    <string name="name_disease">Name of Skin Disease :</string>
 
 </resources>
