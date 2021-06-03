@@ -45,6 +45,6 @@
     <string name="name_disease"> Name of the diseases : </string>
     <string name="result"> Detection Result </string>
     <string name="validity"> Validity Result</string>
-
+    <string name="birth_date">dd/mm/yyyy</string>
 
 </resources>

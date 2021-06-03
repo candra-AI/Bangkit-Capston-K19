@@ -7,7 +7,7 @@
     tools:context=".ui.fragment.welcoming.identity.IdentityFragment">
 
     <TextView
-        android:id="@+id/tv_name"
+        android:id="@+id/tv_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/size_36"
@@ -20,5 +20,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Tanggal lahir kamu" />
+
+    <EditText
+        android:id="@+id/date_birth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_36"
+        android:layout_marginTop="80dp"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:hint="@string/birth_date" />
+
+
+
 
 </FrameLayout>
