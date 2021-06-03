@@ -16,10 +16,11 @@
         android:layout_marginEnd="@dimen/size_36"
         android:fontFamily="@font/raleway_semibold"
         android:textSize="24sp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Hi Fadillah Mozhaiq Ramadhani" />
+        tools:text="Hi Fadillah Mozhaiq Ramadhani," />
 
     <ImageView
         android:id="@+id/iv_profile"
