@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import id.capstone.project.skindetector.R
+import id.capstone.project.skindetector.databinding.FragmentHomeBinding
+import id.capstone.project.skindetector.databinding.FragmentIdentityBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -13,12 +15,20 @@ import id.capstone.project.skindetector.R
  * create an instance of this fragment.
  */
 class IdentityFragment : Fragment() {
+    private var _binding: FragmentIdentityBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_identity, container, false)
+        _binding = FragmentIdentityBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
