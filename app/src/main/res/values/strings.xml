@@ -36,5 +36,8 @@
     <string name="skin_scaly"> Scaly Skin</string>
     <string name="upload_picture"> Upload Picture</string>
     <string name="done"> Done</string>
+    <string name="hello_name">Hi %s</string>
+    <string name="greeting_desc">Detect your skin by taking a 3-4 inch picture of the skin with sufficient light</string>
+    <string name="start">Start</string>
 
 </resources>
