@@ -41,5 +41,6 @@
     <string name="doctor_name"> dr. Adi Candra</string>
     <string name="doctor_specialist"> Skin Specialist</string>
     <string name="appointment"> Make Appointment</string>
+    <string name="take_picture">Take Picture</string>
 
 </resources>
