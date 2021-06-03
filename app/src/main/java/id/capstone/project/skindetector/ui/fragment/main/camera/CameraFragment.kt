@@ -1,6 +1,7 @@
 package id.capstone.project.skindetector.ui.fragment.main.camera
 
-import android.Manifest
+import android.Manifest.permission.CAMERA
+import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -12,8 +13,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.result.ActivityResultCallback
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
@@ -43,7 +42,7 @@ class CameraFragment : Fragment() {
         private const val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
         private const val REQUEST_CODE_PERMISSIONS = 10
         const val GALLERY_REQUEST = 156
-        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
+        private val REQUIRED_PERMISSIONS = arrayOf(CAMERA, READ_EXTERNAL_STORAGE)
     }
 
     private var _binding: FragmentCameraBinding? = null
@@ -140,7 +139,8 @@ class CameraFragment : Fragment() {
                         .show()
                     Log.d(TAG, msg)
 
-                    val imageStream: InputStream? = context?.contentResolver?.openInputStream(savedUri)
+                    val imageStream: InputStream? =
+                        context?.contentResolver?.openInputStream(savedUri)
                     val selectedImage = BitmapFactory.decodeStream(imageStream)
                     val fragment = DetectionResultFragment().apply {
                         image = selectedImage
