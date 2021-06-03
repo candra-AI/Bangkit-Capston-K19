@@ -51,6 +51,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv_detect_result" />
 
     <TextView
+        android:id="@+id/tv_result_disese"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -60,6 +61,27 @@
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@id/iv_result"
         app:layout_constraintTop_toBottomOf="@id/tv_detect_name" />
+
+    <Button
+        android:id="@+id/btn_validity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
+        android:text="@string/validity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_disese" />
+
+    <Button
+        android:id="@+id/btn_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_8"
+        android:text="@string/done"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_validity" />
+
 
 
 

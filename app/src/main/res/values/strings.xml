@@ -44,5 +44,7 @@
     <string name="take_picture">Take Picture</string>
     <string name="name_disease"> Name of the diseases : </string>
     <string name="result"> Detection Result </string>
+    <string name="validity"> Validity Result</string>
+
 
 </resources>
