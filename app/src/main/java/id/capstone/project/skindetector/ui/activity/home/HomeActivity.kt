@@ -2,12 +2,12 @@ package id.capstone.project.skindetector.ui.activity.home
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
-import android.util.Log
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.commitNow
 import androidx.navigation.ActivityNavigator
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
@@ -17,7 +17,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import id.capstone.project.skindetector.R
 import id.capstone.project.skindetector.databinding.ActivityHomeBinding
 import id.capstone.project.skindetector.ui.fragment.main.camera.CameraFragment.Companion.GALLERY_REQUEST
-import java.io.IOException
+import id.capstone.project.skindetector.ui.fragment.other.detectionresult.DetectionResultFragment
+import java.io.FileNotFoundException
+import java.io.InputStream
+
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -69,15 +72,29 @@ class HomeActivity : AppCompatActivity() {
         if (resultCode == Activity.RESULT_OK) {
             when (requestCode) {
                 GALLERY_REQUEST -> {
-                    Toast.makeText(this, "Data get out!", Toast.LENGTH_SHORT).show()
-                    val selectedImage = data?.data
+
                     try {
-                        val bitmap =
-                            MediaStore.Images.Media.getBitmap(contentResolver, selectedImage)
-//                    carImage.setImageBitmap(bitmap)
-                        Toast.makeText(this, "Data get successfully!", Toast.LENGTH_SHORT).show()
-                    } catch (e: IOException) {
-                        Log.i("TAG", "Some exception $e")
+                        val imageUri: Uri = data?.data as Uri
+                        val imageStream: InputStream? = contentResolver.openInputStream(imageUri)
+                        val selectedImage = BitmapFactory.decodeStream(imageStream)
+                        val fragment = DetectionResultFragment().apply {
+                            image = selectedImage
+                        }
+                        supportFragmentManager.commitNow(allowStateLoss = true) {
+                            add(
+                                R.id.nav_host_fragment,
+                                fragment,
+                                DetectionResultFragment::class.java.simpleName
+                            )
+                        }
+                    } catch (e: FileNotFoundException) {
+                        e.printStackTrace()
+                        Toast.makeText(
+                            applicationContext,
+                            "Something went wrong",
+                            Toast.LENGTH_LONG
+                        )
+                            .show()
                     }
                 }
                 else -> Toast.makeText(this, "Not Found! $requestCode", Toast.LENGTH_SHORT).show()

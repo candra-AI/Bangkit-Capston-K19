@@ -34,4 +34,10 @@
         android:name="id.capstone.project.skindetector.ui.fragment.main.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/detectionResultFragment"
+        android:name="id.capstone.project.skindetector.ui.fragment.other.detectionresult.DetectionResultFragment"
+        android:label="fragment_detection_result"
+        tools:layout="@layout/fragment_detection_result" />
 </navigation>

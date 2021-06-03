@@ -50,22 +50,6 @@ class CameraFragment : Fragment() {
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                // There are no request codes
-                val data: Intent? = result.data
-//                        doSomeOperations()
-                Toast.makeText(context, "Congratulations!", Toast.LENGTH_SHORT).show()
-            }
-        }
-        registerForActivityResult(resultLauncher,
-            ActivityResultCallback<Intent> {
-
-            })
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -98,12 +82,10 @@ class CameraFragment : Fragment() {
                 val photoPickerIntent = Intent(Intent.ACTION_PICK).apply {
                     type = "image/*"
                 }
-                resultLauncher.launch(photoPickerIntent)
-//                startActivityForResult(
-////                    Intent.createChooser(photoPickerIntent, "Select Picture"),
-//                    photoPickerIntent,
-//                    GALLERY_REQUEST
-//                )
+                activity?.startActivityForResult(
+                    Intent.createChooser(photoPickerIntent, "Select Picture To Detect"),
+                    GALLERY_REQUEST
+                )
             }
             btnFlash.setOnClickListener {
                 if (flashState) {
