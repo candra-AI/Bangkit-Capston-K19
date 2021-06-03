@@ -42,5 +42,6 @@
     <string name="doctor_specialist"> Skin Specialist</string>
     <string name="appointment"> Make Appointment</string>
     <string name="take_picture">Take Picture</string>
+    <string name="name_disease"> Name of the diseases : </string>
 
 </resources>
