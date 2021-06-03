@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commitNow
 import coil.load
 import id.capstone.project.skindetector.databinding.FragmentDetectionResultBinding
 
@@ -29,15 +30,30 @@ class DetectionResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        val byteArray = arguments?.getByteArray(IMAGE_GET_KEY) as ByteArray
-//        val image = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
 
+        showLoading(true)
         with(binding) {
             ivResult.load(image)
+            btnDone.setOnClickListener {
+                requireActivity().supportFragmentManager.commitNow {
+                    remove(this@DetectionResultFragment)
+                }
+            }
+            showLoading(false)
         }
     }
 
-
+    private fun showLoading(show: Boolean) {
+        with(binding) {
+            if (show) {
+                layoutCore.visibility = View.GONE
+                pbDetect.visibility = View.VISIBLE
+            } else {
+                layoutCore.visibility = View.VISIBLE
+                pbDetect.visibility = View.GONE
+            }
+        }
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

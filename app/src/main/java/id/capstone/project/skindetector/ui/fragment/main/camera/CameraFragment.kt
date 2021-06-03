@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -18,9 +19,12 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commitNow
 import id.capstone.project.skindetector.R
 import id.capstone.project.skindetector.databinding.FragmentCameraBinding
+import id.capstone.project.skindetector.ui.fragment.other.detectionresult.DetectionResultFragment
 import java.io.File
+import java.io.InputStream
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.ExecutorService
@@ -135,6 +139,19 @@ class CameraFragment : Fragment() {
                     Toast.makeText(requireContext().applicationContext, msg, Toast.LENGTH_SHORT)
                         .show()
                     Log.d(TAG, msg)
+
+                    val imageStream: InputStream? = context?.contentResolver?.openInputStream(savedUri)
+                    val selectedImage = BitmapFactory.decodeStream(imageStream)
+                    val fragment = DetectionResultFragment().apply {
+                        image = selectedImage
+                    }
+                    activity?.supportFragmentManager?.commitNow(allowStateLoss = true) {
+                        add(
+                            R.id.nav_host_fragment,
+                            fragment,
+                            DetectionResultFragment::class.java.simpleName
+                        )
+                    }
                 }
             })
     }
