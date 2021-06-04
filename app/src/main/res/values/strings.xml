@@ -25,7 +25,7 @@
     <string name="title_activity_wellcome">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="desc_welcoming">Detect your skin disease by taking 3-4 inches of the skin with sufficient light</string>
+    <string name="desc_welcoming">Detect your skin disease by taking 3 or 4 inches of the skin with sufficient light</string>
     <string name="duration">Duration of skin disease : </string>
     <string name="symptoms">Symptoms : </string>
     <string name="bump"> Bump</string>
@@ -36,7 +36,7 @@
     <string name="upload_picture"> Upload Picture</string>
     <string name="done"> Done</string>
     <string name="hello_name">Hi %s</string>
-    <string name="greeting_desc">Detect your skin by taking a 3-4 inch picture of the skin with sufficient light</string>
+    <string name="greeting_desc">Detect your skin by taking a 3 or 4 inch picture of the skin with sufficient light</string>
     <string name="start">Start</string>
     <string name="doctor_name"> dr. Adi Candra</string>
     <string name="doctor_specialist"> Skin Specialist</string>
@@ -45,6 +45,10 @@
     <string name="name_disease"> Name of the diseases : </string>
     <string name="result"> Detection Result </string>
     <string name="validity"> Validity Result</string>
+    <string name="date"> What is your date birth?</string>
+    <string name="detail_date"> We need this to makesure your age</string>
     <string name="birth_date">dd/mm/yyyy</string>
+    <string name="location_user">Wheres state are you in right now?</string>
+    <string name="detail_loc"> We need this to recommend you a doctor</string>
 
 </resources>
