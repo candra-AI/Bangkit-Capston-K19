@@ -46,7 +46,7 @@
     <string name="result"> Detection Result </string>
     <string name="validity"> Validity Result</string>
     <string name="date"> What is your date birth?</string>
-    <string name="detail_date"> We need this to makesure your age</string>
+    <string name="detail_date"> We need this to make sure your age</string>
     <string name="birth_date">dd/mm/yyyy</string>
     <string name="location_user">Wheres state are you in right now?</string>
     <string name="detail_loc"> We need this to recommend you a doctor</string>
