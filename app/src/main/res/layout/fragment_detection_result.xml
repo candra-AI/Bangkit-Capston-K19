@@ -147,11 +147,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/pb_result_3" />
 
             <Button
-                android:id="@+id/btn_done"
+                android:id="@+id/btn_skip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/size_8"
-                android:text="@string/done"
+                android:layout_marginBottom="@dimen/size_8"
+                android:backgroundTint="@color/white"
+                android:text="@string/skip"
+                android:paddingStart="@dimen/size_48"
+                android:paddingEnd="@dimen/size_48"
+                android:textColor="@color/orange_200"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btn_validity" />

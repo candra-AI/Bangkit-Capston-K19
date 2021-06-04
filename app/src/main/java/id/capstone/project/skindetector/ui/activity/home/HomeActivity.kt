@@ -2,16 +2,13 @@ package id.capstone.project.skindetector.ui.activity.home
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.commitNow
 import androidx.navigation.ActivityNavigator
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -20,12 +17,12 @@ import id.capstone.project.skindetector.databinding.ActivityHomeBinding
 import id.capstone.project.skindetector.ui.fragment.main.camera.CameraFragment.Companion.GALLERY_REQUEST
 import id.capstone.project.skindetector.ui.fragment.other.detectionresult.DetectionResultFragment
 import java.io.FileNotFoundException
-import java.io.InputStream
 
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private var backPressCount = 0
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +31,7 @@ class HomeActivity : AppCompatActivity() {
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
+        navController = navHostFragment.navController
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
@@ -81,7 +78,9 @@ class HomeActivity : AppCompatActivity() {
                         val fragment = DetectionResultFragment().apply {
                             imagePath = imageUri
                         }
-                        findNavController(R.id.nav_host_fragment).navigate(R.id.action_navigation_camera_to_detectionResultFragment)
+                        navController.navigate(R.id.action_navigation_camera_to_detectionResultFragment)
+//                        onNavDestinationSelected(R.id.detectionResultFragment, navController)
+//                        findNavController(R.id.nav_host_fragment).navigate(R.id.action_navigation_camera_to_detectionResultFragment)
 //                        supportFragmentManager.commitNow(allowStateLoss = true) {
 //                            add(
 //                                R.id.nav_host_fragment,
