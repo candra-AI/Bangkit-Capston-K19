@@ -50,5 +50,8 @@
     <string name="birth_date">dd/mm/yyyy</string>
     <string name="location_user">Wheres state are you in right now?</string>
     <string name="detail_loc"> We need this to recommend you a doctor</string>
+    <string name="user"> Me </string>
+    <string name="type_text"> Type here</string>
+    <string name="send"> Send </string>
 
 </resources>
