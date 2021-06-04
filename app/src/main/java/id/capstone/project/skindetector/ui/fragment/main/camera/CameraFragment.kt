@@ -22,6 +22,7 @@ import androidx.fragment.app.commitNow
 import id.capstone.project.skindetector.R
 import id.capstone.project.skindetector.databinding.FragmentCameraBinding
 import id.capstone.project.skindetector.ui.fragment.other.detectionresult.DetectionResultFragment
+import org.koin.android.viewmodel.ext.android.viewModel
 import java.io.File
 import java.io.InputStream
 import java.text.SimpleDateFormat
@@ -36,7 +37,6 @@ import java.util.concurrent.Executors
  * create an instance of this fragment.
  */
 class CameraFragment : Fragment() {
-
     companion object {
         private const val TAG = "CameraXBasic"
         private const val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
@@ -49,6 +49,7 @@ class CameraFragment : Fragment() {
     private val binding get() = _binding!!
     private var imageCapture: ImageCapture? = null
     private var flashState = false
+    private val viewModel: CameraViewModel by viewModel()
 
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
@@ -139,11 +140,11 @@ class CameraFragment : Fragment() {
                         .show()
                     Log.d(TAG, msg)
 
-                    val imageStream: InputStream? =
-                        context?.contentResolver?.openInputStream(savedUri)
-                    val selectedImage = BitmapFactory.decodeStream(imageStream)
+//                    val imageStream: InputStream? =
+//                        context?.contentResolver?.openInputStream(savedUri)
+//                    val selectedImage = BitmapFactory.decodeStream(imageStream)
                     val fragment = DetectionResultFragment().apply {
-                        image = selectedImage
+                        imagePath = savedUri
                     }
                     activity?.supportFragmentManager?.commitNow(allowStateLoss = true) {
                         add(

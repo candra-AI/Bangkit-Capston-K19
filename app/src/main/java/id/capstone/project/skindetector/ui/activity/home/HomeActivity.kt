@@ -11,6 +11,7 @@ import androidx.fragment.app.commitNow
 import androidx.navigation.ActivityNavigator
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -75,18 +76,19 @@ class HomeActivity : AppCompatActivity() {
 
                     try {
                         val imageUri: Uri = data?.data as Uri
-                        val imageStream: InputStream? = contentResolver.openInputStream(imageUri)
-                        val selectedImage = BitmapFactory.decodeStream(imageStream)
+//                        val imageStream: InputStream? = contentResolver.openInputStream(imageUri)
+//                        val selectedImage = BitmapFactory.decodeStream(imageStream)
                         val fragment = DetectionResultFragment().apply {
-                            image = selectedImage
+                            imagePath = imageUri
                         }
-                        supportFragmentManager.commitNow(allowStateLoss = true) {
-                            add(
-                                R.id.nav_host_fragment,
-                                fragment,
-                                DetectionResultFragment::class.java.simpleName
-                            )
-                        }
+                        findNavController(R.id.nav_host_fragment).navigate(R.id.action_navigation_camera_to_detectionResultFragment)
+//                        supportFragmentManager.commitNow(allowStateLoss = true) {
+//                            add(
+//                                R.id.nav_host_fragment,
+//                                fragment,
+//                                DetectionResultFragment::class.java.simpleName
+//                            )
+//                        }
                     } catch (e: FileNotFoundException) {
                         e.printStackTrace()
                         Toast.makeText(

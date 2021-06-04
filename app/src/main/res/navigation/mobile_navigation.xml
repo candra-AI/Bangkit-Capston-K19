@@ -21,7 +21,12 @@
         android:id="@+id/navigation_camera"
         android:name="id.capstone.project.skindetector.ui.fragment.main.camera.CameraFragment"
         android:label="@string/title_camera"
-        tools:layout="@layout/fragment_camera" />
+        tools:layout="@layout/fragment_camera" >
+        <action
+            android:id="@+id/action_navigation_camera_to_detectionResultFragment"
+            app:destination="@id/detectionResultFragment"
+            app:launchSingleTop="true"/>
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_premium"
