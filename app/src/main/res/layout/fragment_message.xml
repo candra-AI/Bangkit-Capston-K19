@@ -1,14 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.main.message.MessageFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        android:id="@+id/container_chat"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:padding="@dimen/size_24">
 
-</FrameLayout>
+        <EditText
+            android:id="@+id/message_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:inputType="none"
+            android:hint="@string/type_text"
+            android:layout_toStartOf="@id/btn_send"/>
+
+        <Button
+            android:id="@+id/btn_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:text="@string/send"/>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentTop="false"
+            android:layout_marginBottom="20dp"
+            android:layout_above="@id/message_edit"
+            android:layout_below="@id/tv_label_me"
+            android:layout_marginTop="@dimen/size_8"
+            android:listSelector="@color/orange_200"
+            android:transcriptMode="alwaysScroll"
+            android:divider="@null"/>
+
+        <TextView
+            android:id="@+id/tv_label_me"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:text="@string/user"
+            android:fontFamily="@font/raleway_bold"
+            android:singleLine="false"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/tv_label_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="@string/doctor_name"
+            android:fontFamily="@font/raleway_bold"
+            android:textSize="20sp"/>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
