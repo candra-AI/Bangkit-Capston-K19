@@ -38,22 +38,29 @@
             android:layout_marginTop="15sp"
             android:fontFamily="@font/raleway_semibold"
             android:text="Fadillah"
-            android:textColor="@color/white"
-            android:textSize="32sp" />
+            android:textSize="24sp" />
 
 
         <TextView
-            android:id="@+id/tv_location"
+            android:id="@+id/tv_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_name"
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/raleway_medium"
-            android:text="Samarinda, Indonesia"
-            android:textAllCaps="true"
+            android:text="18 years"
             android:textSize="14sp" />
 
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/raleway_medium"
+        android:text="Location"
+        android:textSize="18sp"
+        android:layout_below="@id/rl_1"
+        android:layout_marginStart="@dimen/size_8" />
 
 
 
