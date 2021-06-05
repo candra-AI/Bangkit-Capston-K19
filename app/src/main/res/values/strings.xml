@@ -53,5 +53,7 @@
     <string name="user"> Me </string>
     <string name="type_text"> Type here</string>
     <string name="send"> Send </string>
+    <string name="skip">Skip</string>
+    <string name="progress_percent">%s &#65130;</string>
 
 </resources>

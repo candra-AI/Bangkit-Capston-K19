@@ -14,12 +14,15 @@ import id.capstone.project.skindetector.data.model.DetectResultEntity
 import id.capstone.project.skindetector.databinding.FragmentDetectionResultBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 import java.io.File
+import java.math.RoundingMode
+import java.text.DecimalFormat
 import kotlin.math.roundToInt
 
 class DetectionResultFragment : Fragment() {
     companion object {
         const val IMAGE_GET_KEY = "image_key"
     }
+
     private var _binding: FragmentDetectionResultBinding? = null
     private val binding get() = _binding!!
     private val viewModel: DetectionResultViewModel by viewModel()
@@ -49,7 +52,7 @@ class DetectionResultFragment : Fragment() {
                 crossfade(1000)
                 transformations(RoundedCornersTransformation(30f))
             }
-            btnDone.setOnClickListener {
+            btnSkip.setOnClickListener {
                 requireActivity().supportFragmentManager.commitNow {
                     remove(this@DetectionResultFragment)
                 }
@@ -62,12 +65,24 @@ class DetectionResultFragment : Fragment() {
             tvResultDisese1.text = data.firstDisease
             tvResultDisese2.text = data.secondDisease
             tvResultDisese3.text = data.thirdDisease
-            pbResult1.progress  = data.firstPresentation.roundToInt()
+            pbResult1.progress = data.firstPresentation.roundToInt()
             pbResult2.progress = data.secondPresentation.roundToInt()
             pbResult3.progress = data.secondPresentation.roundToInt()
-            tvPrecent1.text = getString(R.string.progress_percent, data.firstPresentation)
-            tvPrecent2.text = getString(R.string.progress_percent, data.secondPresentation)
-            tvPrecent3.text = getString(R.string.progress_percent, data.thirdPresentation)
+            tvPrecent1.text =
+                getString(
+                    R.string.progress_percent,
+                    roundOffDecimal(data.firstPresentation).toString()
+                )
+            tvPrecent2.text =
+                getString(
+                    R.string.progress_percent,
+                    roundOffDecimal(data.secondPresentation).toString()
+                )
+            tvPrecent3.text =
+                getString(
+                    R.string.progress_percent,
+                    roundOffDecimal(data.thirdPresentation).toString()
+                )
         }
     }
 
@@ -81,6 +96,13 @@ class DetectionResultFragment : Fragment() {
                 pbDetect.visibility = View.GONE
             }
         }
+    }
+
+    private fun roundOffDecimal(number: Double): Double {
+        val df = DecimalFormat("#.##").apply {
+            roundingMode = RoundingMode.CEILING
+        }
+        return df.format(number).toDouble()
     }
 
     override fun onDestroyView() {
