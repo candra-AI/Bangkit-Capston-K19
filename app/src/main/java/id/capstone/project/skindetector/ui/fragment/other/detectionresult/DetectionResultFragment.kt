@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commitNow
 import coil.load
 import coil.transform.RoundedCornersTransformation
+import id.capstone.project.skindetector.R
 import id.capstone.project.skindetector.data.model.DetectResultEntity
 import id.capstone.project.skindetector.databinding.FragmentDetectionResultBinding
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -64,6 +65,9 @@ class DetectionResultFragment : Fragment() {
             pbResult1.progress  = data.firstPresentation.roundToInt()
             pbResult2.progress = data.secondPresentation.roundToInt()
             pbResult3.progress = data.secondPresentation.roundToInt()
+            tvPrecent1.text = getString(R.string.progress_percent, data.firstPresentation)
+            tvPrecent2.text = getString(R.string.progress_percent, data.secondPresentation)
+            tvPrecent3.text = getString(R.string.progress_percent, data.thirdPresentation)
         }
     }
 

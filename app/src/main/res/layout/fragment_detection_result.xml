@@ -65,6 +65,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/iv_result"
                 tools:text="Name Of Disease" />
 
+            <TextView
+                android:id="@+id/tv_precent_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginBottom="@dimen/size_4"
+                android:fontFamily="@font/raleway_semibold"
+                app:layout_constraintBottom_toTopOf="@+id/pb_result_1"
+                app:layout_constraintEnd_toEndOf="@+id/pb_result_1"
+                tools:text="85.3%" />
+
             <ProgressBar
                 android:id="@+id/pb_result_1"
                 style="@android:style/Widget.ProgressBar.Horizontal"
@@ -92,6 +103,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/pb_result_1"
                 tools:text="Name Of Disease" />
 
+            <TextView
+                android:id="@+id/tv_precent_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginBottom="@dimen/size_4"
+                android:fontFamily="@font/raleway_semibold"
+                app:layout_constraintBottom_toTopOf="@+id/pb_result_2"
+                app:layout_constraintEnd_toEndOf="@+id/pb_result_2"
+                tools:text="72.3%" />
+
             <ProgressBar
                 android:id="@+id/pb_result_2"
                 style="@android:style/Widget.ProgressBar.Horizontal"
@@ -118,6 +140,17 @@
                 app:layout_constraintStart_toStartOf="@id/pb_result_2"
                 app:layout_constraintTop_toBottomOf="@+id/pb_result_2"
                 tools:text="Name Of Disease" />
+
+            <TextView
+                android:id="@+id/tv_precent_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginBottom="@dimen/size_4"
+                android:fontFamily="@font/raleway_semibold"
+                app:layout_constraintBottom_toTopOf="@+id/pb_result_3"
+                app:layout_constraintEnd_toEndOf="@+id/pb_result_3"
+                tools:text="50.3%" />
 
             <ProgressBar
                 android:id="@+id/pb_result_3"
