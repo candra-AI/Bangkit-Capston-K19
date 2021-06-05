@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.commitNow
 import androidx.navigation.ActivityNavigator
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
@@ -78,16 +79,16 @@ class HomeActivity : AppCompatActivity() {
                         val fragment = DetectionResultFragment().apply {
                             imagePath = imageUri
                         }
-                        navController.navigate(R.id.action_navigation_camera_to_detectionResultFragment)
+//                        navController.navigate(R.id.action_navigation_camera_to_detectionResultFragment)
 //                        onNavDestinationSelected(R.id.detectionResultFragment, navController)
 //                        findNavController(R.id.nav_host_fragment).navigate(R.id.action_navigation_camera_to_detectionResultFragment)
-//                        supportFragmentManager.commitNow(allowStateLoss = true) {
-//                            add(
-//                                R.id.nav_host_fragment,
-//                                fragment,
-//                                DetectionResultFragment::class.java.simpleName
-//                            )
-//                        }
+                        supportFragmentManager.commitNow(allowStateLoss = true) {
+                            add(
+                                R.id.container_home_activity,
+                                fragment,
+                                DetectionResultFragment::class.java.simpleName
+                            )
+                        }
                     } catch (e: FileNotFoundException) {
                         e.printStackTrace()
                         Toast.makeText(
