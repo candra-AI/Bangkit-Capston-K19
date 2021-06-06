@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commitNow
@@ -71,13 +72,12 @@ class HomeActivity : AppCompatActivity() {
         if (resultCode == Activity.RESULT_OK) {
             when (requestCode) {
                 GALLERY_REQUEST -> {
-
                     try {
                         val imageUri: Uri = data?.data as Uri
-//                        val imageStream: InputStream? = contentResolver.openInputStream(imageUri)
-//                        val selectedImage = BitmapFactory.decodeStream(imageStream)
                         val fragment = DetectionResultFragment().apply {
-                            imagePath = imageUri
+//                            imagePath = imageUri
+                            fromGallery = true
+                            setImagePathResult(imageUri)
                         }
 //                        navController.navigate(R.id.action_navigation_camera_to_detectionResultFragment)
 //                        onNavDestinationSelected(R.id.detectionResultFragment, navController)
@@ -129,6 +129,23 @@ class HomeActivity : AppCompatActivity() {
             true
         } catch (e: IllegalArgumentException) {
             false
+        }
+    }
+
+    companion object {
+        fun getRealPathFromURI(contentURI: Uri?, context: Activity): String? {
+            val projection = arrayOf(MediaStore.Images.Media.DATA)
+            val cursor = context.managedQuery(
+                contentURI, projection, null,
+                null, null
+            ) ?: return null
+            val columnIndex = cursor
+                .getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+            return if (cursor.moveToFirst()) {
+                // cursor.close();
+                cursor.getString(columnIndex)
+            } else null
+            // cursor.close();
         }
     }
 }

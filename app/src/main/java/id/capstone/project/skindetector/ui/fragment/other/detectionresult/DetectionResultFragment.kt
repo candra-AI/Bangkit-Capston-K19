@@ -2,6 +2,7 @@ package id.capstone.project.skindetector.ui.fragment.other.detectionresult
 
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import coil.transform.RoundedCornersTransformation
 import id.capstone.project.skindetector.R
 import id.capstone.project.skindetector.data.model.DetectResultEntity
 import id.capstone.project.skindetector.databinding.FragmentDetectionResultBinding
+import id.capstone.project.skindetector.ui.activity.home.HomeActivity.Companion.getRealPathFromURI
 import org.koin.android.viewmodel.ext.android.viewModel
 import java.io.File
 import java.math.RoundingMode
@@ -27,6 +29,7 @@ class DetectionResultFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: DetectionResultViewModel by viewModel()
     var imagePath: Uri? = null
+    var fromGallery = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,17 +40,30 @@ class DetectionResultFragment : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (imagePath != null) {
+            viewModel.imagePath = this.imagePath
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         showLoading(true)
-        viewModel.detectImage(imagePath?.path.toString()).observe(viewLifecycleOwner) {
+        val path = if (fromGallery) {
+            getRealPathFromURI(getImagePathResult(), requireActivity())
+        } else {
+            getImagePathResult().path
+        } as String
+        Log.e("TAG", "onViewCreated: $path")
+        viewModel.detectImage(path).observe(viewLifecycleOwner) {
             setData(it)
             showLoading(false)
         }
 
         with(binding) {
-            ivResult.load(File(imagePath!!.path)) {
+            ivResult.load(File(path)) {
                 crossfade(true)
                 crossfade(1000)
                 transformations(RoundedCornersTransformation(30f))
@@ -104,6 +120,16 @@ class DetectionResultFragment : Fragment() {
         }
         return df.format(number).toDouble()
     }
+
+    fun setImagePathResult(uri: Uri?) {
+        this.imagePath = uri
+    }
+
+    fun getImagePathResult(): Uri =
+        if (viewModel.imagePath != null)
+            viewModel.imagePath!!
+        else
+            this.imagePath ?: Uri.EMPTY
 
     override fun onDestroyView() {
         super.onDestroyView()

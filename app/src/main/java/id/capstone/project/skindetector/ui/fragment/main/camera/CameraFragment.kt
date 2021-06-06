@@ -1,13 +1,13 @@
 package id.capstone.project.skindetector.ui.fragment.main.camera
 
-import android.Manifest.permission.CAMERA
-import android.Manifest.permission.READ_EXTERNAL_STORAGE
+import android.Manifest.permission.*
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -42,7 +42,7 @@ class CameraFragment : Fragment() {
         private const val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
         private const val REQUEST_CODE_PERMISSIONS = 10
         const val GALLERY_REQUEST = 156
-        private val REQUIRED_PERMISSIONS = arrayOf(CAMERA, READ_EXTERNAL_STORAGE)
+        private val REQUIRED_PERMISSIONS = arrayOf(CAMERA, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE)
     }
 
     private var _binding: FragmentCameraBinding? = null
@@ -83,9 +83,7 @@ class CameraFragment : Fragment() {
         with(binding) {
             btnTakePicture.setOnClickListener { takePhoto() }
             btnGallery.setOnClickListener {
-                val photoPickerIntent = Intent(Intent.ACTION_PICK).apply {
-                    type = "image/*"
-                }
+                val photoPickerIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
                 activity?.startActivityForResult(
                     Intent.createChooser(photoPickerIntent, "Select Picture To Detect"),
                     GALLERY_REQUEST
@@ -144,7 +142,9 @@ class CameraFragment : Fragment() {
 //                        context?.contentResolver?.openInputStream(savedUri)
 //                    val selectedImage = BitmapFactory.decodeStream(imageStream)
                     val fragment = DetectionResultFragment().apply {
-                        imagePath = savedUri
+//                        imagePath = savedUri
+                        fromGallery = false
+                        setImagePathResult(savedUri)
                     }
                     activity?.supportFragmentManager?.commitNow(allowStateLoss = true) {
                         add(
