@@ -2,10 +2,13 @@ package id.capstone.project.skindetector.utils.helper
 
 import android.content.Context
 import androidx.core.content.edit
-import id.fadillah.jetpacksubmission.R
+import id.capstone.project.skindetector.R
 
 internal class PreferenceHelper(private val context: Context) {
-    private val preference = context.getSharedPreferences(context.getString(R.string.preference_name), Context.MODE_PRIVATE)
+    private val preference = context.getSharedPreferences(
+        context.getString(R.string.preference_name),
+        Context.MODE_PRIVATE
+    )
 
     fun setShowed() {
         preference.edit {
@@ -13,5 +16,6 @@ internal class PreferenceHelper(private val context: Context) {
         }
     }
 
-    fun isShowed(): Boolean = preference.getBoolean(context.getString(R.string.preference_key), false)
+    fun isShowed(): Boolean =
+        preference.getBoolean(context.getString(R.string.preference_key), false)
 }

@@ -60,5 +60,7 @@
     <string name="premium_valid"> Validity Now</string>
     <string name="oke"> OK </string>
     <string name="cancel"> Cancel</string>
+    <string name="preference_name">id.capstone.project.skindetector.PREFRENCE_NAME</string>
+    <string name="preference_key">id.capstone.project.skindetector.PREFERENCE_KEY</string>
 
 </resources>
