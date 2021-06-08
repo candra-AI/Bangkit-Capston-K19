@@ -55,5 +55,10 @@
     <string name="send"> Send </string>
     <string name="skip">Skip</string>
     <string name="progress_percent">%s &#65130;</string>
+    <string name="premium_member"> Becoming Premium Member Now!</string>
+    <string name="premium_desc"> Validity your result to Professional Doctor</string>
+    <string name="premium_valid"> Validity Now</string>
+    <string name="oke"> OK </string>
+    <string name="cancel"> Cancel</string>
 
 </resources>

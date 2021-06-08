@@ -31,4 +31,6 @@ class IdentityFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }

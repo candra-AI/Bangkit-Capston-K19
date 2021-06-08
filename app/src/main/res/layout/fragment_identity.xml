@@ -33,7 +33,7 @@
         app:layout_constraintStart_toStartOf="@+id/tv_date"
         app:layout_constraintTop_toBottomOf="@+id/tv_date" />
 
-    <EditText
+        <EditText
         android:id="@+id/date_birth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,6 +43,7 @@
         android:hint="@string/birth_date"
         app:layout_constraintStart_toStartOf="@+id/tv_date"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
 
     <TextView
         android:id="@+id/tv_loc"
@@ -70,15 +71,24 @@
         app:layout_constraintStart_toStartOf="@id/tv_date"
         app:layout_constraintTop_toBottomOf="@id/tv_loc" />
 
+    <Button
+        android:id="@+id/btn_enable_loc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_16"
+        app:layout_constraintTop_toBottomOf="@id/textView2"
+        app:layout_constraintStart_toStartOf="@id/textView2"
+        android:text="enable location"/>
+
 
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="280dp"
         android:text="@string/done"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_enable_loc"
+        app:layout_constraintStart_toStartOf="@id/textView2"
+        app:layout_constraintEnd_toEndOf="@id/textView2"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
