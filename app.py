@@ -63,7 +63,7 @@ def infer_image():
 
 @app.route('/', methods=['GET'])
 def index():
-    return 'Skin Deaseas Detection APP with Google Cloud and Machine Learning'
+    return 'Skin Diseases Detector Application Using ML Model and Cloud Computing'
 
 
 if __name__ == '__main__':
