@@ -29,5 +29,9 @@ Skin disease detection app, for people who are still unfamiliar with their skin 
 1. You can just find run button or you can just press **Shift+F10**
 2. Enjoy the apps!
 
+## Version History
+* 1.0
+..* Initial Commit
+
 
 
