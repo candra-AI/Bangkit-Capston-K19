@@ -7,7 +7,6 @@ Skin disease detection app, for people who are still unfamiliar with their skin 
 ## Dependencies
 #### For Layout
 * Lottie Animations library
-* Auto Image Slider
 * Buble Tab Bar
 * Coil library
 #### For Storage
@@ -18,7 +17,7 @@ Skin disease detection app, for people who are still unfamiliar with their skin 
 * Chucker library
 #### For Dependency Injection
 * Koin
-* For Camera
+#### For Camera
 * CameraX
 
 ## Getting Started
