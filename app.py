@@ -4,7 +4,7 @@ import tensorflow as tf
 import cv2
 from flask import Flask, jsonify, request
 
-model_path = r'E:\bangkit\serba serbi capston\v1.2'   # Path untuk model saved_model.pb
+model_path = r'gs://my-skindeaseas-bucket/v1.2_model/'   # Path untuk model saved_model.pb
 
 model = tf.saved_model.load(model_path)
 
@@ -67,4 +67,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=True, host='localhost', use_reloader=True)
+    app.run(port=5000, debug=True, host='0.0.0.0', use_reloader=True)
