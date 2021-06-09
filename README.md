@@ -2,7 +2,7 @@
 
 
 ## Description
-Skin disease detectetion app, for people who are still unfamiliar with their skin disease so that they can be detected as quickly as possible and carry out prevention before going to the doctor.
+Skin disease detection app, for people who are still unfamiliar with their skin disease so that they can be detected as quickly as possible and carry out prevention before going to the doctor.
 
 ## Dependencies
 #### For Layout
@@ -20,6 +20,14 @@ Skin disease detectetion app, for people who are still unfamiliar with their ski
 * Koin
 * For Camera
 * CameraX
+
+## Getting Started
+#### Installing
+1. Install Android Studio, you can download it [here](https://developer.android.com/studio)
+2. Import this project to your Android Studio
+#### Executing Program
+1. You can just find run button or you can just press **Shift+F10**
+2. Enjoy the apps!
 
 
 
