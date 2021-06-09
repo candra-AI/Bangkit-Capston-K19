@@ -31,7 +31,7 @@ Skin disease detection app, for people who are still unfamiliar with their skin 
 
 ## Version History
 * 1.0
-..* Initial Commit
+    * Initial Commit
 
 
 
