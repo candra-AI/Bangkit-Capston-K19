@@ -2,7 +2,6 @@ package id.capstone.project.skindetector.ui.fragment.other.detectionresult
 
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commitNow
 import coil.load
 import coil.transform.RoundedCornersTransformation
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.ktx.storage
 import id.capstone.project.skindetector.R
 import id.capstone.project.skindetector.data.model.DetectResultEntity
 import id.capstone.project.skindetector.databinding.FragmentDetectionResultBinding
@@ -30,6 +32,13 @@ class DetectionResultFragment : Fragment() {
     private val viewModel: DetectionResultViewModel by viewModel()
     var imagePath: Uri? = null
     var fromGallery = false
+    private lateinit var storage: FirebaseStorage
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        storage = Firebase.storage
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,6 +69,7 @@ class DetectionResultFragment : Fragment() {
         viewModel.detectImage(path).observe(viewLifecycleOwner) {
             setData(it)
             showLoading(false)
+            viewModel.uploadFiles(storage, path)
         }
 
         with(binding) {
