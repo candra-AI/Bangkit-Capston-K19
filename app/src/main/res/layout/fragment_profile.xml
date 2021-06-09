@@ -26,7 +26,7 @@
                 android:adjustViewBounds="true"
                 android:padding="3dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/ic_person" />
+                android:src="@drawable/user_pic" />
 
         </RelativeLayout>
         <TextView
@@ -53,14 +53,13 @@
 
     </RelativeLayout>
 
-    <TextView
+    <Button
+        android:layout_marginTop="@dimen/size_24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/raleway_medium"
-        android:text="Location"
-        android:textSize="18sp"
         android:layout_below="@id/rl_1"
-        android:layout_marginStart="@dimen/size_8" />
+        android:layout_centerHorizontal="true"
+        android:text="Edit Profile"/>
 
 
 
