@@ -10,12 +10,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import id.capstone.project.skindetector.R
 import id.capstone.project.skindetector.databinding.FragmentHomeBinding
 import id.capstone.project.skindetector.ui.activity.welcome.WelcomeActivity
+import id.capstone.project.skindetector.ui.adapter.ListDoctorAdapter
+import org.koin.android.viewmodel.ext.android.viewModel
 import java.io.IOException
 import java.util.*
 
@@ -29,6 +33,8 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
+    private val viewModel: HomeViewModel by viewModel()
+    private val doctorAdapter: ListDoctorAdapter by lazy { ListDoctorAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,7 +61,18 @@ class HomeFragment : Fragment() {
         val userLoggedIn = auth.currentUser
         with(binding) {
             tvName.text = getString(R.string.hello_name, userLoggedIn?.displayName)
+            rvListDoctor.apply {
+                adapter = doctorAdapter
+                layoutManager = LinearLayoutManager(context)
+                setHasFixedSize(true)
+            }
         }
+        doctorAdapter.setDoctors(viewModel.getListDoctor() )
+        // Write a message to the database
+        val database = Firebase.database
+        val myRef = database.getReference("message")
+
+        myRef.setValue("Hello, World!")
     }
 
     private fun gotoLogin() {
