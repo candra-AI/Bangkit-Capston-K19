@@ -6,20 +6,20 @@ Skin disease detectetion app, for people who are still unfamiliar with their ski
 
 ## Dependencies
 ### For Layout
-⋅⋅* Lottie Animations library
-⋅⋅* Auto Image Slider
-⋅⋅* Buble Tab Bar
-⋅⋅* Coil library
+* Lottie Animations library
+* Auto Image Slider
+* Buble Tab Bar
+* Coil library
 ### For Storage
-⋅⋅* Room library
-⋅⋅* Firebase Storage
+* Room library
+* Firebase Storage
 ### For Networking
-⋅⋅* Retrofit library
-⋅⋅* Chucker library
+* Retrofit library
+* Chucker library
 ### For Dependency Injection
-⋅⋅* Koin
-⋅⋅* For Camera
-⋅⋅* CameraX
+* Koin
+* For Camera
+* CameraX
 
 
 
