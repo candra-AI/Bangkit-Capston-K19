@@ -31,6 +31,12 @@
             app:launchSingleTop="true"
             app:popUpTo="@id/signUpFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_signUpFragment_to_greetingsFragment"
+            app:destination="@id/greetingsFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/signUpFragment"
+            app:popUpToInclusive="true"  />
     </fragment>
 
     <fragment
@@ -44,5 +50,21 @@
             app:launchSingleTop="true"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_greetingsFragment"
+            app:destination="@id/greetingsFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"  />
+    </fragment>
+
+    <fragment
+        android:id="@+id/greetingsFragment"
+        android:name="id.capstone.project.skindetector.ui.fragment.welcoming.greetings.GreetingsFragment"
+        android:label="greetingsFragment"
+        tools:layout="@layout/fragment_greetings" >
+        <action
+            android:id="@+id/action_greetingsFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
     </fragment>
 </navigation>

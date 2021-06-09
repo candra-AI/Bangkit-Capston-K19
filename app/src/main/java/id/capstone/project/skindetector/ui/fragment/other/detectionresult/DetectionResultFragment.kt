@@ -56,7 +56,7 @@ class DetectionResultFragment : Fragment() {
         } else {
             getImagePathResult().path
         } as String
-        Log.e("TAG", "onViewCreated: $path")
+
         viewModel.detectImage(path).observe(viewLifecycleOwner) {
             setData(it)
             showLoading(false)

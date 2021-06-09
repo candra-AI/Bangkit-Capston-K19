@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/size_8"
-    tools:context=".ui.fragment.welcoming.login.LoginFragment">
+    tools:context=".ui.fragment.welcoming.greetings.GreetingsFragment">
 
     <TextView
         android:id="@+id/tv_name"
@@ -24,20 +24,20 @@
 
     <ImageView
         android:id="@+id/iv_profile"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_marginTop="@dimen/size_60"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_name"
-        tools:src="@drawable/logo" />
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/tv_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/size_16"
-        android:layout_marginTop="@dimen/size_60"
+        android:layout_marginTop="@dimen/size_32"
         android:layout_marginEnd="@dimen/size_16"
         android:fontFamily="@font/raleway_semibold"
         android:gravity="center"

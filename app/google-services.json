@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "86890065743",
+    "firebase_url": "https://phrasal-bivouac-314704-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "phrasal-bivouac-314704",
+    "storage_bucket": "phrasal-bivouac-314704.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86890065743:android:6878567bbeb4c1ab47df3a",
+        "android_client_info": {
+          "package_name": "id.capstone.project.skindetector"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "86890065743-2kod8vgsrkm14cugu57bn7l67h267740.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAliUHxXCC91rz1YMh5NHlHtJjy3x-1v7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "86890065743-2kod8vgsrkm14cugu57bn7l67h267740.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

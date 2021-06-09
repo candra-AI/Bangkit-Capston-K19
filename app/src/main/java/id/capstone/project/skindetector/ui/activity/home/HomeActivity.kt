@@ -75,7 +75,6 @@ class HomeActivity : AppCompatActivity() {
                     try {
                         val imageUri: Uri = data?.data as Uri
                         val fragment = DetectionResultFragment().apply {
-//                            imagePath = imageUri
                             fromGallery = true
                             setImagePathResult(imageUri)
                         }
@@ -84,7 +83,7 @@ class HomeActivity : AppCompatActivity() {
 //                        findNavController(R.id.nav_host_fragment).navigate(R.id.action_navigation_camera_to_detectionResultFragment)
                         supportFragmentManager.commitNow(allowStateLoss = true) {
                             add(
-                                R.id.container_home_activity,
+                                R.id.nav_host_fragment,
                                 fragment,
                                 DetectionResultFragment::class.java.simpleName
                             )
@@ -133,6 +132,8 @@ class HomeActivity : AppCompatActivity() {
     }
 
     companion object {
+        const val EXTRA_USER: String = "extra_user"
+
         fun getRealPathFromURI(contentURI: Uri?, context: Activity): String? {
             val projection = arrayOf(MediaStore.Images.Media.DATA)
             val cursor = context.managedQuery(

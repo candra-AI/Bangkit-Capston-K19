@@ -62,5 +62,6 @@
     <string name="cancel"> Cancel</string>
     <string name="preference_name">id.capstone.project.skindetector.PREFRENCE_NAME</string>
     <string name="preference_key">id.capstone.project.skindetector.PREFERENCE_KEY</string>
+    <string name="hi_name">Hi! %s</string>
 
 </resources>

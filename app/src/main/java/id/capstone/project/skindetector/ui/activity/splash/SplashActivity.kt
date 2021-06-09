@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import id.capstone.project.skindetector.databinding.ActivitySplashBinding
 import id.capstone.project.skindetector.ui.activity.home.HomeActivity
 import id.capstone.project.skindetector.ui.activity.welcome.WelcomeActivity
@@ -17,9 +19,15 @@ class SplashActivity : AppCompatActivity() {
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Check for existing Google Sign In account, if the user is already signed in
+        // the GoogleSignInAccount will be non-null.
+        val account: GoogleSignInAccount? = GoogleSignIn.getLastSignedInAccount(this)
+
         Handler(Looper.getMainLooper()).postDelayed({
-            if (true) {
-                startActivity(Intent(this, HomeActivity::class.java))
+            if (account != null) {
+                startActivity(Intent(this, HomeActivity::class.java).apply {
+                    putExtra(HomeActivity.EXTRA_USER, account)
+                })
             } else {
                 startActivity(Intent(this, WelcomeActivity::class.java))
             }
