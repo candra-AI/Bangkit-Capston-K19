@@ -40,9 +40,9 @@ class CameraFragment : Fragment() {
     companion object {
         private const val TAG = "CameraXBasic"
         private const val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
-        private const val REQUEST_CODE_PERMISSIONS = 10
+        const val REQUEST_CODE_PERMISSIONS = 10
         const val GALLERY_REQUEST = 156
-        private val REQUIRED_PERMISSIONS = arrayOf(CAMERA, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE)
+        val REQUIRED_PERMISSIONS = arrayOf(CAMERA, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE)
     }
 
     private var _binding: FragmentCameraBinding? = null

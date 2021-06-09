@@ -8,6 +8,7 @@ import android.text.Spanned
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.navigation.findNavController
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.common.api.ApiException
@@ -18,6 +19,7 @@ import com.google.firebase.ktx.Firebase
 import id.capstone.project.skindetector.R
 import id.capstone.project.skindetector.databinding.ActivityWelcomeBinding
 import id.capstone.project.skindetector.ui.activity.home.HomeActivity
+import id.capstone.project.skindetector.ui.fragment.main.camera.CameraFragment
 import id.capstone.project.skindetector.ui.fragment.welcoming.signup.SignUpFragment.Companion.RC_SIGN_IN
 
 
@@ -32,6 +34,13 @@ class WelcomeActivity : AppCompatActivity() {
         setContentView(binding.root)
         // Initialize Firebase Auth
         auth = Firebase.auth
+
+
+        ActivityCompat.requestPermissions(
+            this,
+            CameraFragment.REQUIRED_PERMISSIONS,
+            CameraFragment.REQUEST_CODE_PERMISSIONS
+        )
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
