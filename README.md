@@ -5,7 +5,7 @@
 Skin disease detection app, for people who are still unfamiliar with their skin disease so that they can be detected as quickly as possible and carry out prevention before going to the doctor. Use machine learning from server to analyze the image from user, and get the JSON as response.
 
 ## Detection Result
-<img src="result.png" alt="result" width="200"/>
+<img src="result.png" alt="result" width="400"/>
 
 ## Dependencies
 #### For Layout
