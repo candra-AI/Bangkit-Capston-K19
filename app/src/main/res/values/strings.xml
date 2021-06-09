@@ -35,7 +35,7 @@
     <string name="skin_scaly"> Scaly Skin</string>
     <string name="upload_picture"> Upload Picture</string>
     <string name="done"> Done</string>
-    <string name="hello_name">Hi %s</string>
+    <string name="hello_name">Hello, %s</string>
     <string name="greeting_desc">Detect your skin by taking a 3 or 4 inch picture of the skin with sufficient light</string>
     <string name="start">Start</string>
     <string name="doctor_name"> dr. Adi Candra</string>
@@ -63,5 +63,7 @@
     <string name="preference_name">id.capstone.project.skindetector.PREFRENCE_NAME</string>
     <string name="preference_key">id.capstone.project.skindetector.PREFERENCE_KEY</string>
     <string name="hi_name">Hi! %s</string>
+    <string name="samarinda_indonesia">Samarinda, Indonesia</string>
+    <string name="you_can_find_doctor_s_nearest_from_your_location">You can find doctor\'s nearest from your location</string>
 
 </resources>

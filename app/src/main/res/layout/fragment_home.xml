@@ -42,7 +42,7 @@
             android:layout_marginStart="@dimen/size_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Samarinda, Indonesia"
+            android:text="@string/samarinda_indonesia"
             android:textColor="@color/black" />
 
     </LinearLayout>
@@ -60,10 +60,52 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/location_container">
 
-        <ImageView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/bc_home" />
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bc_home" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:fontFamily="@font/raleway_semibold"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/size_8"
+                android:layout_marginStart="@dimen/size_8"
+                android:layout_marginBottom="@dimen/size_8"
+                android:textSize="18sp"
+                android:maxLines="3"
+                tools:text="Hello, Fadillah Mozhaiq Ramadhani"
+                app:layout_constraintEnd_toEndOf="@id/gd_Center"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:fontFamily="@font/raleway_semibold"
+                android:textColor="@color/black"
+                android:layout_marginStart="@dimen/size_8"
+                android:layout_marginBottom="@dimen/size_8"
+                android:text="@string/you_can_find_doctor_s_nearest_from_your_location"
+                app:layout_constraintEnd_toEndOf="@id/gd_Center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gd_Center"
+                android:layout_width="2dp"
+                android:layout_height="2dp"
+                app:layout_constraintGuide_percent="0.5"
+                android:orientation="vertical"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
