@@ -5,18 +5,18 @@
 Skin disease detectetion app, for people who are still unfamiliar with their skin disease so that they can be detected as quickly as possible and carry out prevention before going to the doctor.
 
 ## Dependencies
-### For Layout
+#### For Layout
 * Lottie Animations library
 * Auto Image Slider
 * Buble Tab Bar
 * Coil library
-### For Storage
+#### For Storage
 * Room library
 * Firebase Storage
-### For Networking
+#### For Networking
 * Retrofit library
 * Chucker library
-### For Dependency Injection
+#### For Dependency Injection
 * Koin
 * For Camera
 * CameraX
