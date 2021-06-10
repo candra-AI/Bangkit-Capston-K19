@@ -66,5 +66,8 @@
         <action
             android:id="@+id/action_greetingsFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
+        <argument
+            android:name="displayName"
+            app:argType="string" />
     </fragment>
 </navigation>

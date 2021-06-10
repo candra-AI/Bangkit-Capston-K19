@@ -1,6 +1,5 @@
 package id.capstone.project.skindetector.ui.fragment.welcoming.signup
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
@@ -20,6 +19,7 @@ import com.google.firebase.ktx.Firebase
 import id.capstone.project.skindetector.R
 import id.capstone.project.skindetector.databinding.FragmentSignUpBinding
 import id.capstone.project.skindetector.ui.activity.welcome.WelcomeActivity
+import id.capstone.project.skindetector.utils.helper.PreferenceHelper
 
 
 /**
@@ -37,6 +37,7 @@ class SignUpFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
+    private val preferenceHelper by lazy { PreferenceHelper(requireContext()) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +53,7 @@ class SignUpFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding =
             FragmentSignUpBinding.inflate(inflater, container, false)
         // Initialize Firebase Auth
@@ -65,7 +66,7 @@ class SignUpFragment : Fragment() {
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            reload();
+            userVerificationDone()
         }
 
         val account = GoogleSignIn.getLastSignedInAccount(requireContext())
@@ -122,7 +123,8 @@ class SignUpFragment : Fragment() {
                                         }
 
                                 }
-                                userVerificationDone()
+                                preferenceHelper.setLogin()
+                                userVerificationDone(name)
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Log.w(TAG, "createUserWithEmail:failure", task.exception)
@@ -138,8 +140,9 @@ class SignUpFragment : Fragment() {
         }
     }
 
-    private fun userVerificationDone() {
-        view?.findNavController()?.navigate(R.id.action_signUpFragment_to_greetingsFragment)
+    private fun userVerificationDone(displayName: String = "") {
+        view?.findNavController()
+            ?.navigate(SignUpFragmentDirections.actionSignUpFragmentToGreetingsFragment(displayName))
     }
 
     private fun validateInput(): Boolean {
@@ -183,10 +186,6 @@ class SignUpFragment : Fragment() {
             }
             return validName && validEmail && validPassword
         }
-    }
-
-    private fun reload() {
-        view?.findNavController()?.navigate(R.id.action_signUpFragment_to_greetingsFragment)
     }
 
     private fun signIn() {

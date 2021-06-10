@@ -1,11 +1,14 @@
 package id.capstone.project.skindetector.ui.fragment.welcoming.greetings
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.google.firebase.auth.FirebaseAuth
@@ -14,6 +17,8 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.ktx.Firebase
 import id.capstone.project.skindetector.R
 import id.capstone.project.skindetector.databinding.FragmentGreetingsBinding
+import id.capstone.project.skindetector.ui.fragment.welcoming.login.LoginFragment
+import id.capstone.project.skindetector.utils.helper.PreferenceHelper
 
 /**
  * A simple [Fragment] subclass.
@@ -24,6 +29,8 @@ class GreetingsFragment : Fragment() {
     private var _binding: FragmentGreetingsBinding? = null
     private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
+    private val args: GreetingsFragmentArgs by navArgs()
+    private val preferenceHelper by lazy { PreferenceHelper(requireContext()) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,7 +64,7 @@ class GreetingsFragment : Fragment() {
 
         with(binding) {
             if (user != null) {
-                tvName.text = getString(R.string.hi_name, user.displayName)
+                tvName.text = getString(R.string.hi_name, user.displayName ?: args.displayName)
                 ivProfile.load(user.photoUrl) {
                     crossfade(true)
                     crossfade(1000)

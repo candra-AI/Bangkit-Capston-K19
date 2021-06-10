@@ -2,6 +2,7 @@ package id.capstone.project.skindetector.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.CircleCropTransformation
@@ -27,6 +28,9 @@ class ListDoctorAdapter : RecyclerView.Adapter<ListDoctorAdapter.DoctorViewHolde
                 tvDoctor.text = doctor.name
                 tvSpecialist.text = doctor.specialist
                 tvLocation.text = doctor.location
+                btnAppoinment.setOnClickListener {
+                    Toast.makeText(binding.root.context, "Not yet implemented!", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }

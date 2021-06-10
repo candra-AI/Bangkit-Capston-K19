@@ -10,12 +10,12 @@ internal class PreferenceHelper(private val context: Context) {
         Context.MODE_PRIVATE
     )
 
-    fun setShowed() {
+    fun setLogin() {
         preference.edit {
             putBoolean(context.getString(R.string.preference_key), true)
         }
     }
 
-    fun isShowed(): Boolean =
+    fun isLoggedIn(): Boolean =
         preference.getBoolean(context.getString(R.string.preference_key), false)
 }

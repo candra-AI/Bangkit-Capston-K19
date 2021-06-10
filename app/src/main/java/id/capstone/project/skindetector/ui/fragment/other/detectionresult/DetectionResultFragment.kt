@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.commitNow
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
@@ -77,13 +76,10 @@ class DetectionResultFragment : Fragment() {
                 transformations(RoundedCornersTransformation(30f))
             }
             btnSkip.setOnClickListener {
-                if (!args.isFromCamera) {
-                    findNavController().navigate(DetectionResultFragmentDirections.actionNavigationResultToNavigationCamera())
-                } else {
-                    requireActivity().supportFragmentManager.commitNow {
-                        remove(this@DetectionResultFragment)
-                    }
-                }
+                findNavController().navigate(DetectionResultFragmentDirections.actionNavigationResultToNavigationCamera())
+            }
+            btnValidity.setOnClickListener {
+                findNavController().navigate(R.id.navigation_premium)
             }
         }
     }
@@ -118,10 +114,10 @@ class DetectionResultFragment : Fragment() {
         with(binding) {
             if (show) {
                 layoutCore.visibility = View.GONE
-                pbDetect.visibility = View.VISIBLE
+                lottieAnalyzing.visibility = View.VISIBLE
             } else {
                 layoutCore.visibility = View.VISIBLE
-                pbDetect.visibility = View.GONE
+                lottieAnalyzing.visibility = View.GONE
             }
         }
     }

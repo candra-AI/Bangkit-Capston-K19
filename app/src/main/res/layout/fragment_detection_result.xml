@@ -15,7 +15,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_core"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/iv_logo"
@@ -168,10 +169,10 @@
             <Button
                 android:id="@+id/btn_validity"
                 android:layout_width="wrap_content"
-                app:icon="@drawable/ic_verified"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/size_16"
                 android:text="@string/validity"
+                app:icon="@drawable/ic_verified"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pb_result_3" />
@@ -193,13 +194,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/btn_validity" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ProgressBar
-            android:id="@+id/pb_detect"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_analyzing"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:layout_centerInParent="true"/>
+            android:layout_centerInParent="true"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/analyzing_lottie" />
 
     </RelativeLayout>
 </androidx.core.widget.NestedScrollView>

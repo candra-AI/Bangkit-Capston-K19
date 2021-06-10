@@ -130,7 +130,6 @@ class CameraFragment : Fragment() {
                     val msg = "Photo capture failed: ${exc.message}"
                     Log.e(TAG, msg, exc)
                     firebaseCrashlytics.log(msg)
-                    Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
