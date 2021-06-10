@@ -194,14 +194,36 @@
                 app:layout_constraintTop_toBottomOf="@+id/btn_validity" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottie_analyzing"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/analyzing_lottie" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_lottie"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottie_analyzing"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/analyzing_lottie" />
+
+            <TextView
+                android:fontFamily="@font/raleway_semibold"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_marginTop="@dimen/size_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/analyzing"
+                app:layout_constraintTop_toBottomOf="@+id/lottie_analyzing"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </RelativeLayout>
 </androidx.core.widget.NestedScrollView>

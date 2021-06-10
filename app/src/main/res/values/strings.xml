@@ -67,5 +67,6 @@
     <string name="you_can_find_doctor_s_nearest_from_your_location">You can find doctor\'s nearest from your location</string>
     <string name="fragment_detection_result">Image Result</string>
     <string name="become_a_premium_member_now">Become A Premium Member Now!</string>
+    <string name="analyzing">Analyzing ...</string>
 
 </resources>

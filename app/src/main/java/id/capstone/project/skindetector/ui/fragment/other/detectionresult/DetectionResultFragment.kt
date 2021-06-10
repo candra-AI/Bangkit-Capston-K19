@@ -114,10 +114,10 @@ class DetectionResultFragment : Fragment() {
         with(binding) {
             if (show) {
                 layoutCore.visibility = View.GONE
-                lottieAnalyzing.visibility = View.VISIBLE
+                layoutLottie.visibility = View.VISIBLE
             } else {
                 layoutCore.visibility = View.VISIBLE
-                lottieAnalyzing.visibility = View.GONE
+                layoutLottie.visibility = View.GONE
             }
         }
     }
