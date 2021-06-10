@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/size_16"
@@ -30,27 +31,31 @@
 
         <TextView
             android:id="@+id/tv_doctor"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/size_16"
             android:layout_marginTop="@dimen/size_4"
+            android:layout_marginEnd="@dimen/size_4"
             android:fontFamily="@font/raleway_semibold"
-            android:maxLines="1"
-            android:text="@string/doctor_name"
+            android:maxLines="2"
             android:textColor="@color/black"
             android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/guideline"
             app:layout_constraintStart_toEndOf="@+id/iv_doctor"
-            app:layout_constraintTop_toTopOf="@+id/iv_doctor" />
+            app:layout_constraintTop_toTopOf="@+id/iv_doctor"
+            tools:text="dr. Fadillah Mozhaiq Ramadhani" />
 
         <TextView
             android:id="@+id/tv_specialist"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/size_4"
+            android:layout_marginEnd="@dimen/size_4"
             android:fontFamily="@font/raleway_semibold"
             android:text="@string/doctor_specialist"
             android:textColor="@color/black"
             android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="@+id/tv_doctor"
             app:layout_constraintTop_toBottomOf="@+id/tv_doctor" />
 
@@ -58,19 +63,26 @@
             android:id="@+id/tv_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_16"
             android:text="Samarinda, Indonesia"
             android:textColor="@color/black"
             app:drawableStartCompat="@drawable/ic_location"
             app:drawableTint="@color/black"
-            android:layout_marginTop="@dimen/size_16"
             app:layout_constraintStart_toStartOf="@+id/tv_specialist"
             app:layout_constraintTop_toBottomOf="@+id/tv_specialist" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="2dp"
+            android:layout_height="2dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6" />
 
         <Button
             android:id="@+id/btn_appoinment"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="@dimen/size_36"
+            android:layout_marginStart="@dimen/size_4"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="@dimen/size_16"
             android:layout_marginBottom="@dimen/size_4"
@@ -79,7 +91,7 @@
             android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/tv_location"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_doctor"
+            app:layout_constraintStart_toEndOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
