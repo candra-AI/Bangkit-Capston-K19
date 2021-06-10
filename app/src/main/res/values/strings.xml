@@ -65,5 +65,6 @@
     <string name="hi_name">Hi! %s</string>
     <string name="samarinda_indonesia">Samarinda, Indonesia</string>
     <string name="you_can_find_doctor_s_nearest_from_your_location">You can find doctor\'s nearest from your location</string>
+    <string name="fragment_detection_result">Image Result</string>
 
 </resources>

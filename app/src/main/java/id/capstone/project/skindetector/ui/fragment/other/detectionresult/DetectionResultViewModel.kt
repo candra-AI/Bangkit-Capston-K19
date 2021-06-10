@@ -15,8 +15,6 @@ class DetectionResultViewModel(private val useCase: SkinUseCase) : ViewModel() {
         private const val TAG = "DetectionResultViewMode"
     }
 
-    var imagePath: Uri? = null
-
     fun detectImage(imagePath: String): LiveData<DetectResultEntity> =
         useCase.detectImage(imagePath)
 

@@ -4,7 +4,6 @@ import android.Manifest.permission.*
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -18,13 +17,12 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.commitNow
+import androidx.navigation.fragment.findNavController
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import id.capstone.project.skindetector.R
 import id.capstone.project.skindetector.databinding.FragmentCameraBinding
-import id.capstone.project.skindetector.ui.fragment.other.detectionresult.DetectionResultFragment
 import org.koin.android.viewmodel.ext.android.viewModel
 import java.io.File
-import java.io.InputStream
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.ExecutorService
@@ -50,6 +48,7 @@ class CameraFragment : Fragment() {
     private var imageCapture: ImageCapture? = null
     private var flashState = false
     private val viewModel: CameraViewModel by viewModel()
+    private val firebaseCrashlytics: FirebaseCrashlytics by lazy { FirebaseCrashlytics.getInstance() }
 
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
@@ -60,6 +59,7 @@ class CameraFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentCameraBinding.inflate(inflater, container, false)
+        firebaseCrashlytics.sendUnsentReports()
         return binding.root
     }
 
@@ -83,7 +83,8 @@ class CameraFragment : Fragment() {
         with(binding) {
             btnTakePicture.setOnClickListener { takePhoto() }
             btnGallery.setOnClickListener {
-                val photoPickerIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+                val photoPickerIntent =
+                    Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
                 activity?.startActivityForResult(
                     Intent.createChooser(photoPickerIntent, "Select Picture To Detect"),
                     GALLERY_REQUEST
@@ -128,6 +129,7 @@ class CameraFragment : Fragment() {
                 override fun onError(exc: ImageCaptureException) {
                     val msg = "Photo capture failed: ${exc.message}"
                     Log.e(TAG, msg, exc)
+                    firebaseCrashlytics.log(msg)
                     Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
                 }
 
@@ -138,21 +140,13 @@ class CameraFragment : Fragment() {
                         .show()
                     Log.d(TAG, msg)
 
-//                    val imageStream: InputStream? =
-//                        context?.contentResolver?.openInputStream(savedUri)
-//                    val selectedImage = BitmapFactory.decodeStream(imageStream)
-                    val fragment = DetectionResultFragment().apply {
-//                        imagePath = savedUri
-                        fromGallery = false
-                        setImagePathResult(savedUri)
-                    }
-                    activity?.supportFragmentManager?.commitNow(allowStateLoss = true) {
-                        add(
-                            R.id.nav_host_fragment,
-                            fragment,
-                            DetectionResultFragment::class.java.simpleName
-                        )
-                    }
+                    val action =
+                        CameraFragmentDirections.actionNavigationCameraToNavigationResult(
+                            savedUri
+                        ).apply {
+                            isFromCamera = true
+                        }
+                    findNavController().navigate(action)
                 }
             })
     }
@@ -186,6 +180,7 @@ class CameraFragment : Fragment() {
                 )
 
             } catch (exc: Exception) {
+                firebaseCrashlytics.recordException(exc)
                 Log.e(TAG, "Use case binding failed", exc)
             }
 
@@ -209,6 +204,7 @@ class CameraFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         cameraExecutor.shutdown()
+        firebaseCrashlytics.sendUnsentReports()
         _binding = null
     }
 

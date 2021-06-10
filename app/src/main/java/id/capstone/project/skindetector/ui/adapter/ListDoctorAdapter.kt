@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import coil.transform.CircleCropTransformation
 import id.capstone.project.skindetector.data.model.DoctorEntity
 import id.capstone.project.skindetector.databinding.ItemListDoctorBinding
 
@@ -20,7 +21,9 @@ class ListDoctorAdapter : RecyclerView.Adapter<ListDoctorAdapter.DoctorViewHolde
         RecyclerView.ViewHolder(binding.root) {
         fun bind(doctor: DoctorEntity) {
             with(binding) {
-                ivDoctor.load(doctor.urlProfile)
+                ivDoctor.load(doctor.urlProfile) {
+                    transformations(CircleCropTransformation())
+                }
                 tvDoctor.text = doctor.name
                 tvSpecialist.text = doctor.specialist
                 tvLocation.text = doctor.location

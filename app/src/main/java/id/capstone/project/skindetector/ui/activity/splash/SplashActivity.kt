@@ -7,6 +7,7 @@ import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import id.capstone.project.skindetector.databinding.ActivitySplashBinding
 import id.capstone.project.skindetector.ui.activity.home.HomeActivity
 import id.capstone.project.skindetector.ui.activity.welcome.WelcomeActivity
@@ -25,6 +26,11 @@ class SplashActivity : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             if (account != null) {
+                // Set a key to a string.
+                FirebaseCrashlytics.getInstance()
+                    .setCustomKey("userLoggedIn", account.displayName ?: "Display Name is Null")
+                FirebaseCrashlytics.getInstance()
+                    .setCustomKey("userEmail", account.email ?: "Email is Null")
                 startActivity(Intent(this, HomeActivity::class.java).apply {
                     putExtra(HomeActivity.EXTRA_USER, account)
                 })

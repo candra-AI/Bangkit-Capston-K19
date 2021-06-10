@@ -21,11 +21,12 @@
         android:id="@+id/navigation_camera"
         android:name="id.capstone.project.skindetector.ui.fragment.main.camera.CameraFragment"
         android:label="@string/title_camera"
-        tools:layout="@layout/fragment_camera" >
+        tools:layout="@layout/fragment_camera">
         <action
-            android:id="@+id/action_navigation_camera_to_detectionResultFragment"
-            app:destination="@id/detectionResultFragment"
-            app:launchSingleTop="true"/>
+            android:id="@+id/action_navigation_camera_to_navigation_result"
+            app:destination="@id/navigation_result"
+            app:popUpTo="@id/navigation_camera"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -41,8 +42,19 @@
         tools:layout="@layout/fragment_profile" />
 
     <fragment
-        android:id="@+id/detectionResultFragment"
+        android:id="@+id/navigation_result"
         android:name="id.capstone.project.skindetector.ui.fragment.other.detectionresult.DetectionResultFragment"
-        android:label="fragment_detection_result"
-        tools:layout="@layout/fragment_detection_result" />
+        android:label="@string/fragment_detection_result"
+        tools:layout="@layout/fragment_detection_result">
+        <argument
+            android:name="isFromCamera"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="uriImage"
+            app:argType="android.net.Uri" />
+        <action
+            android:id="@+id/action_navigation_result_to_navigation_camera"
+            app:destination="@id/navigation_camera" />
+    </fragment>
 </navigation>

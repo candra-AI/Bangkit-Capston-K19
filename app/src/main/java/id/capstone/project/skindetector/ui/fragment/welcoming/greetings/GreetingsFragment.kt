@@ -10,6 +10,7 @@ import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.ktx.Firebase
 import id.capstone.project.skindetector.R
 import id.capstone.project.skindetector.databinding.FragmentGreetingsBinding
@@ -27,7 +28,7 @@ class GreetingsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentGreetingsBinding.inflate(inflater, container, false)
         // Initialize Firebase Auth
@@ -47,6 +48,13 @@ class GreetingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val user = auth.currentUser
+
+        // Set a key to a string.
+        FirebaseCrashlytics.getInstance()
+            .setCustomKey("userLoggedIn", user?.displayName ?: "Display Name is Null")
+        FirebaseCrashlytics.getInstance()
+            .setCustomKey("userEmail", user?.email ?: "Email is Null")
+
         with(binding) {
             if (user != null) {
                 tvName.text = getString(R.string.hi_name, user.displayName)

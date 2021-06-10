@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.commitNow
 import androidx.navigation.ActivityNavigator
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
@@ -17,6 +16,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import id.capstone.project.skindetector.R
 import id.capstone.project.skindetector.databinding.ActivityHomeBinding
 import id.capstone.project.skindetector.ui.fragment.main.camera.CameraFragment.Companion.GALLERY_REQUEST
+import id.capstone.project.skindetector.ui.fragment.main.camera.CameraFragmentDirections
 import id.capstone.project.skindetector.ui.fragment.other.detectionresult.DetectionResultFragment
 import java.io.FileNotFoundException
 
@@ -47,10 +47,12 @@ class HomeActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.bubbleTabBar.addBubbleListener {
-            onNavDestinationSelected(it, navController)
+            if (it != R.id.navigation_result)
+                onNavDestinationSelected(it, navController)
         }
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            binding.bubbleTabBar.setSelectedWithId(destination.id, false)
+            if (destination.id != R.id.navigation_result)
+                binding.bubbleTabBar.setSelectedWithId(destination.id, false)
         }
 
     }
@@ -74,20 +76,15 @@ class HomeActivity : AppCompatActivity() {
                 GALLERY_REQUEST -> {
                     try {
                         val imageUri: Uri = data?.data as Uri
-                        val fragment = DetectionResultFragment().apply {
-                            fromGallery = true
-                            setImagePathResult(imageUri)
-                        }
-//                        navController.navigate(R.id.action_navigation_camera_to_detectionResultFragment)
-//                        onNavDestinationSelected(R.id.detectionResultFragment, navController)
-//                        findNavController(R.id.nav_host_fragment).navigate(R.id.action_navigation_camera_to_detectionResultFragment)
-                        supportFragmentManager.commitNow(allowStateLoss = true) {
-                            add(
-                                R.id.nav_host_fragment,
-                                fragment,
-                                DetectionResultFragment::class.java.simpleName
+//                        DetectionResultFragment().apply {
+//                            fromGallery = true
+//                            setImagePathResult(imageUri)
+//                        }
+                        val action =
+                            CameraFragmentDirections.actionNavigationCameraToNavigationResult(
+                                imageUri
                             )
-                        }
+                        navController.navigate(action)
                     } catch (e: FileNotFoundException) {
                         e.printStackTrace()
                         Toast.makeText(
