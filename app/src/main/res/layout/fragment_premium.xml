@@ -39,7 +39,6 @@
             android:src="@drawable/ic_anim_doct" />
 
         <TextView
-            android:id="@+id/tv_desc_premium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/iv_animdoc"

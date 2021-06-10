@@ -1,12 +1,10 @@
 package id.capstone.project.skindetector.ui.fragment.welcoming.identity
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import id.capstone.project.skindetector.R
-import id.capstone.project.skindetector.databinding.FragmentHomeBinding
+import androidx.fragment.app.Fragment
 import id.capstone.project.skindetector.databinding.FragmentIdentityBinding
 
 /**

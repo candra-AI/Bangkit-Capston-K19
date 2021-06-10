@@ -7,7 +7,6 @@
     <string name="title_profile">Profile</string>
     <string name="description_splash">Detect your Skin Problem and know the Disease</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="desc_welcome">Know your Diseases by AI and Validity it by Professional Doctor</string>
     <string name="create_account">Create Account</string>
     <string name="login">Login</string>
@@ -16,24 +15,7 @@
     <string name="or">Or</string>
     <string name="signup">Sign Up</string>
     <string name="input_name">Input Your Name</string>
-    <string name="title_activity_main">MainActivity</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-    <string name="title_activity_wellcome">FullscreenActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="desc_welcoming">Detect your skin disease by taking 3 or 4 inches of the skin with sufficient light</string>
-    <string name="duration">Duration of skin disease : </string>
-    <string name="symptoms">Symptoms : </string>
-    <string name="bump"> Bump</string>
-    <string name="itchy"> Itchy</string>
-    <string name="skin_resilient"> Resilient Skin</string>
-    <string name="skin_rash"> Rash Skin</string>
-    <string name="skin_scaly"> Scaly Skin</string>
-    <string name="upload_picture"> Upload Picture</string>
     <string name="done"> Done</string>
     <string name="hello_name">Hello, %s</string>
     <string name="greeting_desc">Detect your skin by taking a 3 or 4 inch picture of the skin with sufficient light</string>
@@ -41,8 +23,6 @@
     <string name="doctor_name"> dr. Adi Candra</string>
     <string name="doctor_specialist"> Skin Specialist</string>
     <string name="appointment"> Make Appointment</string>
-    <string name="take_picture">Take Picture</string>
-    <string name="name_disease"> Name of the diseases : </string>
     <string name="result"> Detection Result </string>
     <string name="validity"> Validity Result</string>
     <string name="date"> What is your date birth?</string>
@@ -57,7 +37,6 @@
     <string name="progress_percent">%s &#65130;</string>
     <string name="premium_member"> Becoming Premium Member Now!</string>
     <string name="premium_desc"> Validity your result to Professional Doctor</string>
-    <string name="premium_valid"> Validity Now</string>
     <string name="oke"> OK </string>
     <string name="cancel"> Cancel</string>
     <string name="preference_name">id.capstone.project.skindetector.PREFRENCE_NAME</string>

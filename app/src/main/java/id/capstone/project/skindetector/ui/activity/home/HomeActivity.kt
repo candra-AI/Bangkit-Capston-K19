@@ -17,7 +17,6 @@ import id.capstone.project.skindetector.R
 import id.capstone.project.skindetector.databinding.ActivityHomeBinding
 import id.capstone.project.skindetector.ui.fragment.main.camera.CameraFragment.Companion.GALLERY_REQUEST
 import id.capstone.project.skindetector.ui.fragment.main.camera.CameraFragmentDirections
-import id.capstone.project.skindetector.ui.fragment.other.detectionresult.DetectionResultFragment
 import java.io.FileNotFoundException
 
 

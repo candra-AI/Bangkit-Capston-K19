@@ -34,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_login">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edt_email"
+            android:id="@+id/edtEmail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="textEmailAddress"/>
@@ -55,7 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/til_email">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edt_password"
+            android:id="@+id/edtPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="textPassword"/>
@@ -93,7 +93,6 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
-        android:id="@+id/tv_or"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/or"

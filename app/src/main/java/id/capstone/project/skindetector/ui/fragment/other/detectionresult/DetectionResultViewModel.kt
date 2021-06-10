@@ -2,7 +2,6 @@ package id.capstone.project.skindetector.ui.fragment.other.detectionresult
 
 import android.net.Uri
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.storage.FirebaseStorage

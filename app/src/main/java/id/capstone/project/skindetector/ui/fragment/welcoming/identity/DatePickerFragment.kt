@@ -1,7 +1,6 @@
 package id.capstone.project.skindetector.ui.fragment.welcoming.identity
 
 import android.app.DatePickerDialog
-import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.DatePicker
 import androidx.fragment.app.DialogFragment
 import id.capstone.project.skindetector.databinding.FragmentDatePickerBinding
-import java.util.*
 
 class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener{
     private var _binding :FragmentDatePickerBinding? = null

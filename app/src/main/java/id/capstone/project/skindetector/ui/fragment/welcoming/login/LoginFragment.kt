@@ -17,7 +17,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import id.capstone.project.skindetector.R
 import id.capstone.project.skindetector.databinding.FragmentLoginBinding
-import id.capstone.project.skindetector.ui.activity.welcome.WelcomeActivity
 import id.capstone.project.skindetector.ui.activity.welcome.WelcomeActivity.Companion.fromHtml
 import id.capstone.project.skindetector.ui.fragment.welcoming.signup.SignUpFragment
 

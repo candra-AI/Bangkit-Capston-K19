@@ -1,11 +1,9 @@
 package id.capstone.project.skindetector.ui.fragment.welcoming.greetings
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
@@ -17,7 +15,6 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.ktx.Firebase
 import id.capstone.project.skindetector.R
 import id.capstone.project.skindetector.databinding.FragmentGreetingsBinding
-import id.capstone.project.skindetector.ui.fragment.welcoming.login.LoginFragment
 import id.capstone.project.skindetector.utils.helper.PreferenceHelper
 
 /**

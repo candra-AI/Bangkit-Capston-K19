@@ -92,31 +92,31 @@ class HomeFragment : Fragment() {
             var add: String = obj.getAddressLine(0)
             add = """
             $add
-            ${obj.getCountryName()}
+            ${obj.countryName}
             """.trimIndent()
             add = """
             $add
-            ${obj.getCountryCode()}
+            ${obj.countryCode}
             """.trimIndent()
             add = """
             $add
-            ${obj.getAdminArea()}
+            ${obj.adminArea}
             """.trimIndent()
             add = """
             $add
-            ${obj.getPostalCode()}
+            ${obj.postalCode}
             """.trimIndent()
             add = """
             $add
-            ${obj.getSubAdminArea()}
+            ${obj.subAdminArea}
             """.trimIndent()
             add = """
             $add
-            ${obj.getLocality()}
+            ${obj.locality}
             """.trimIndent()
             add = """
             $add
-            ${obj.getSubThoroughfare()}
+            ${obj.subThoroughfare}
             """.trimIndent()
             Log.v("IGA", "Address$add")
             // Toast.makeText(this, "Address=>" + add,

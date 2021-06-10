@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_profile" />
 
     <Button
-        android:id="@+id/btn_start"
+        android:id="@+id/btnStart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/size_36"

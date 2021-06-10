@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="green_200">#FF80FFAC</color>
-    <color name="green_500">#FF48CC7C</color>
     <color name="green_700">#FF009A4F</color>
     <color name="orange_200">#FFF48A60</color>
     <color name="orange_700">#FFBD5B35</color>
@@ -9,9 +8,4 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#FFDADADA</color>
     <color name="grey_200">#444444</color>
-    <color name="light_blue_600">#FF039BE5</color>
-    <color name="light_blue_900">#FF01579B</color>
-    <color name="light_blue_A200">#FF40C4FF</color>
-    <color name="light_blue_A400">#FF00B0FF</color>
-    <color name="black_overlay">#66000000</color>
 </resources>

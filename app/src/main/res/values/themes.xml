@@ -20,7 +20,4 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.SkinDetector.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.SkinDetector.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
